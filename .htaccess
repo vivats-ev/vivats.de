@@ -1,0 +1,5 @@
+RewriteEngine on
+RewriteCond %{HTTP_HOST} =vivats.de
+RewriteRule ^(.*)$ https://www.vivats.de/$1 [R=301,L]
+
+RewriteRule "index.php" https://www.vivats.de/ [R=301,L]
