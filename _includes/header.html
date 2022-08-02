@@ -1,0 +1,17 @@
+{% assign theme = site.data.themes[page.theme] %}
+
+<header>
+  <style>
+:root {
+  --header-background: {{ theme.bg }};
+}
+  </style>
+  <div class="header-content">
+    <div class="header-logo-container">
+      <img src="{{ theme.logo }}" class="header-logo" alt="">
+    </div>
+    <div class="header-text">
+      {{ theme.text }}
+    </div>
+  </div>
+</header>

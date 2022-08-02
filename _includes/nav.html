@@ -1,0 +1,14 @@
+<nav>
+  <div class="viva-logo-container">
+    <a href="/"><img src="/img/viva-small.svg" class="viva-logo" alt=""></a>
+  </div>
+  <div class="nav-container">
+    <ul>
+      <li><a href="/" {% if page.url=="/" %}class="active" {% endif %}>Home</a></li>
+      <li><a href="/events/" {% if page.url contains "/events/" %}class="active" {% endif %}>Events</a></li>
+      <li><a href="/viva/" {% if page.url=="/viva/" %}class="active" {% endif %}>VivaTS</a></li>
+      <li><a href="/qties/" {% if page.url=="/qties/" %}class="active" {% endif %}>QTies</a></li>
+      <li><a href="/impressum/" {% if page.url=="/impressum/" %}class="active" {% endif %}>Kontakt & Impressum</a></li>
+    </ul>
+  </div>
+</nav>

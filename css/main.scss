@@ -1,0 +1,160 @@
+---
+---
+
+html, body {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: "Segoe UI",Roboto,Oxygen-Sans,Cantarell,"Helvetica Neue",sans-serif;
+}
+
+nav, main, header .header-content {
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 1em 1em 1em 1em;
+}
+
+header {
+  background: var(--header-background);
+  color: white;
+  padding-top: 2em;
+  padding-bottom: 2em;
+
+  .header-content {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 2em;
+
+    .header-logo-container {
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .header-logo {
+      max-width: 200px;
+    }
+
+    .header-text {
+      min-width: 200px;
+      max-width: calc(600px - 2em);
+      flex-grow: 1;
+      flex-shrink: 1;
+      text-align: center;
+
+      h1 {
+        margin-top: 0;
+      }
+    }
+  }
+}
+
+nav {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2em;
+
+  .viva-logo-container {
+    flex-grow: 1;
+    text-align: center;
+  }
+
+  .viva-logo {
+    max-width: 100px;
+  }
+
+  .nav-container {
+    min-width: calc(100% - 100px - 2em);
+    flex-grow: 1;
+  }
+
+  ul {
+    margin-left: auto;
+    padding: 0;
+    list-style: none;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    gap: .5em;
+  }
+
+  li {
+    display: inline;
+    margin-top: .5em;
+    margin-bottom: .5em;
+
+    a {
+      text-decoration: none;
+      color: black;
+      padding: .5em;
+      margin-top: 1em;
+      margin-right: .5em;
+    }
+
+    a:hover, a:active, a:focus, a.active {
+      color: white;
+      background: black;
+    }
+  }
+}
+
+main {
+  img {
+    width: 100%;
+  }
+
+  a.event {
+    border: 1px solid black;
+    display: block;
+    text-decoration: none;
+    color: black;
+    margin-bottom: 1em;
+
+    div.event-content {
+      padding: 1em;
+      grid-area: content;
+    }
+
+    img.event-hero {
+      width: 100%;
+      grid-area: hero;
+    }
+
+    h3 {
+      margin-top: 0;
+    }
+  }
+
+  a.event:hover {
+    background-color: rgb(245, 245, 245);
+  }
+
+  ul.event-dates {
+    padding: 0;
+    li {
+      list-style: none;
+    }
+    li::before {
+      content: '🗓️ ';
+    }
+  }
+
+  @media (min-width: 600px) {
+    a.event article {
+      display: grid;
+      grid-template-areas: "content hero";
+      grid-template-columns: 4fr 1fr;
+    }
+
+    a.event img.event-hero {
+      object-fit: cover;
+      min-height: 100%;
+    }
+  }
+}

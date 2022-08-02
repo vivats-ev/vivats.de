@@ -1,0 +1,38 @@
+name: Build
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Cache Ruby dependencies
+      uses: actions/cache@v2.1.2
+      with:
+        path: vendor/bundle
+        key: ${{ runner.os }}-gems-${{ hashFiles('**/Gemfile.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-gems-
+
+    - name: Set up Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: 3.1.2
+    - name: Install Ruby dependencies
+      run: bundle install
+    - name: Build site
+      run: bundle exec jekyll build
+
+    - name: Deploy site
+      uses: burnett01/rsync-deployments@5.2.1
+      if: github.ref == 'refs/heads/main'
+      with:
+        switches: -av
+        path: _site/
+        remote_path: ${{ secrets.DEPLOY_PATH }}
+        remote_host: ssh.strato.de
+        remote_user: vivats.de
+        remote_key: ${{ secrets.DEPLOY_KEY }}

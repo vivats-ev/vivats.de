@@ -1,0 +1,28 @@
+{% assign sorted_events = site.events | sort: "sort_date" | reverse %}
+
+{% capture time_now %}{{'now' | date: '%s'}}{% endcapture %}
+{% for event in sorted_events %}
+    {% capture time_event %}{{event.sort_date | date: '%s'}}{% endcapture %}
+
+    {% if time_now < time_event or include.only_future == false %}
+    <a href="{{ event.url }}" class="event">
+        <article>
+            <img class="event-hero" src="{{ event.hero }}" alt="">
+            <div class="event-content">
+                <h3>{{ event.title }}</h3>
+                <div>{{ event.description }}</div>
+                <div>
+                    <ul class="event-dates">
+                        {% for date in event.dates %}
+                        <li>{% include date.html date=date %}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div>
+                    📍 {{ event.place }}
+                </div>
+            </div>
+        </article>
+    </a>
+    {% endif %}
+{% endfor %}

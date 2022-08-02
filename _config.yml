@@ -1,0 +1,18 @@
+sass:
+  style: compact
+
+exclude:
+  - README.md
+
+collections:
+  events:
+    output: true
+    permalink: /:collection/:name/
+
+defaults:
+  - scope:
+      path: ""
+      type: events
+    values:
+      layout: event
+      theme: viva-page

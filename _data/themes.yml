@@ -1,0 +1,23 @@
+viva:
+  bg: "url('/img/viva-bg.png') top / cover no-repeat"
+  logo: /img/viva-white.svg
+  text: |
+    <h1>Du bist nicht allein!</h1>
+    Trans Selbsthilfe München. Wir helfen. Jeden Freitag ab 20:00.
+viva-page:
+  bg: "url('/img/viva-bg.png') top / cover no-repeat"
+  logo: /img/viva-white.svg
+  text: |
+    <h1>Trans Selbsthilfe München</h1>
+qties:
+  bg: "url('/img/qties-bg.jpg') 600px 600px"
+  logo: /img/qties.svg
+  text: |
+    <h1>Willkommen bei den QTies!</h1>
+    Die Gruppe für alle, die nicht in das Zwei-Geschlechter-System passen
+qties-page:
+  bg: "url('/img/qties-bg.jpg') 600px 600px"
+  logo: /img/qties.svg
+  text: |
+    <h1>QTies</h1>
+    Die Gruppe für alle, die nicht in das Zwei-Geschlechter-System passen
