@@ -14,13 +14,20 @@
                 <div>
                     <ul class="event-dates">
                         {% for date in event.dates %}
-                        <li>{% include date.html date=date %}</li>
+                          <li>
+                            {% include date.html date=date %}
+                            {% if date.place %}
+                              /  📍 {{ date.place }}
+                            {% endif %}
+                          </li>
                         {% endfor %}
                     </ul>
                 </div>
+                {% if event.place %}
                 <div>
                     📍 {{ event.place }}
                 </div>
+                {% endif %}
             </div>
         </article>
     </a>

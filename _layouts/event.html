@@ -4,15 +4,22 @@ layout: default
 
 <h2>Event: {{ page.title }}</h2>
 
-<h3>Ort</h3>
+{% if page.place %}
+  <h3>Ort</h3>
 
-📍 {{ page.place }}
+  📍 {{ page.place }}
+{% endif %}
 
 <h3>Termin(e)</h3>
 
 <ul class="event-dates">
   {% for date in page.dates %}
-  <li>{% include date.html date=date %}</li>
+    <li>
+      {% include date.html date=date %}
+      {% if date.place %}
+        /  📍 {{ date.place }}
+      {% endif %}
+    </li>
   {% endfor %}
 </ul>
 
